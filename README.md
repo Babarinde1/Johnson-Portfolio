@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Johnson Pedia Portfolio
 
 React + Vite + TypeScript portfolio. Navy night-sky theme with a glowing particle field, glass cards, and a 3D ring hero.
@@ -37,3 +38,7 @@ See [PHASE10.md](./PHASE10.md) and run `supabase/004_site_content.sql` after the
 
 ## Phase 11
 See `PHASE11.md` for the contact inbox, privacy-minimal analytics, and migration setup.
+=======
+# Johnson-Portfolio
+My Project Portfolio
+>>>>>>> 6c3c28a6e1db76a22c7b252df28bc65d648f32e1
