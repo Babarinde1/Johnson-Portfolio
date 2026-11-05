@@ -1,0 +1,2 @@
+.hero-rings { position: relative; z-index: 2; width: min(100%, 34rem); aspect-ratio: 1; display: block; }
+.hero-visual__halo { width: 90%; }

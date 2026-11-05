@@ -1,0 +1,132 @@
+/* Night-sky look: deep navy base, warm glow, cool-white glass.
+   Delete this file and its @import in global.css to return to the teal theme. */
+:root {
+  --color-bg: #0a0f1c;
+  --color-bg-raised: #111a2b;
+  --color-bg-band: #121a2e;
+  --color-border: rgba(190, 210, 245, 0.14);
+  --glass-fill: linear-gradient(145deg, rgba(190, 210, 255, 0.08), rgba(190, 210, 255, 0.02));
+  --glass-fill-hover: linear-gradient(145deg, rgba(190, 210, 255, 0.12), rgba(190, 210, 255, 0.035));
+  --glass-border: rgba(190, 210, 245, 0.17);
+  --glass-border-hover: rgba(255, 200, 140, 0.38);
+}
+body {
+  background:
+    radial-gradient(58rem 40rem at 82% 8%, rgba(255, 150, 50, 0.11), transparent 62%),
+    radial-gradient(60rem 44rem at 0% 100%, rgba(45, 75, 150, 0.24), transparent 62%),
+    var(--color-bg);
+  background-attachment: fixed;
+}
+.site-header { background: rgba(10, 15, 28, 0.94); }
+@supports (backdrop-filter: blur(8px)) { .site-header { background: rgba(10, 15, 28, 0.7); } }
+.hero { background: radial-gradient(ellipse at 74% 45%, rgba(255, 140, 40, 0.13), rgba(50, 80, 170, 0.1) 38%, transparent 62%); }
+.hero-visual__halo { background: radial-gradient(circle, rgba(110, 140, 255, 0.16), rgba(255, 175, 90, 0.05) 48%, transparent 70%); }
+.page-hero { background: radial-gradient(ellipse at 78% 20%, rgba(255, 150, 50, 0.1), rgba(50, 80, 170, 0.1) 40%, transparent 65%); }
+.intro-section, .contact-band { background: rgba(18, 26, 46, 0.45); }
+.skills-section { background: linear-gradient(180deg, rgba(18, 26, 46, 0.5), rgba(10, 15, 28, 0.05)); }
+.values-section { background: rgba(18, 26, 46, 0.3); }
+.site-footer { background: rgba(10, 15, 28, 0.6); }
+
+/* Phase 14: aurora-tech visual layer — restrained HUD grid, luminous edges,
+   and tactile motion without sacrificing text contrast or mobile performance. */
+:root {
+  --tech-cyan: #78e5f2;
+  --tech-blue: #7398ff;
+  --tech-violet: #a58cff;
+  --tech-glow: 0 0 28px rgba(120, 229, 242, .12), 0 0 64px rgba(115, 152, 255, .08);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .17;
+  background-image:
+    linear-gradient(rgba(120, 229, 242, .10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 229, 242, .10) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .48;
+  background: radial-gradient(ellipse at 52% 38%, rgba(65, 116, 210, .10), transparent 42%);
+  animation: tech-atmosphere 24s ease-in-out infinite alternate;
+}
+@keyframes tech-atmosphere {
+  from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  to { transform: translate3d(1.5%, 1%, 0) scale(1.05); }
+}
+.site-shell { isolation: isolate; }
+.site-header {
+  border-bottom-color: rgba(120, 229, 242, .18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .14);
+}
+.wordmark svg { filter: drop-shadow(0 0 8px rgba(120, 229, 242, .28)); }
+.site-nav a:not(.btn)[aria-current="page"] { border-bottom-color: var(--tech-cyan); }
+.hero::after, .page-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 8% 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(120, 229, 242, .35), rgba(165, 140, 255, .3), transparent);
+}
+.project-card, .focus-card, .contact-panel, .resume-callout, .case-art {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), var(--tech-glow), 0 18px 48px rgba(0,0,0,.2);
+  transition: transform .38s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .38s ease, background .3s ease;
+}
+.project-card::before, .focus-card::before, .contact-panel::before, .resume-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(120,229,242,.08) 48%, transparent 72%);
+  transform: translateX(-65%);
+  transition: opacity .25s ease;
+}
+.project-card:hover::before, .focus-card:hover::before, .contact-panel:hover::before, .resume-callout:hover::before {
+  opacity: 1;
+  animation: tech-sheen .9s ease both;
+}
+@keyframes tech-sheen { to { transform: translateX(65%); } }
+.project-card:hover, .focus-card:hover, .contact-panel:hover {
+  transform: translateY(-5px);
+  border-color: rgba(120, 229, 242, .38);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 0 0 1px rgba(120,229,242,.08), 0 22px 64px rgba(0,0,0,.28), 0 0 34px rgba(120,229,242,.09);
+}
+.btn { position: relative; overflow: hidden; transition: transform .24s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease; }
+.btn--primary { box-shadow: 0 0 22px rgba(255, 176, 64, .12); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,176,64,.2), 0 0 22px rgba(120,229,242,.12); }
+.btn--ghost:hover { border-color: rgba(120,229,242,.42); box-shadow: 0 0 22px rgba(120,229,242,.08); }
+.label { color: #9dbac9; }
+.tag-list li, .tag { border-color: rgba(120,229,242,.18); }
+.particle-field { opacity: .88; }
+
+/* Inbox controls */
+.admin-message { border: 1px solid rgba(120,229,242,.13); border-radius: 14px; background: rgba(17,26,43,.56); margin-bottom: .75rem; transition: border-color .22s ease, transform .22s ease, background .22s ease; }
+.admin-message:hover { border-color: rgba(120,229,242,.32); background: rgba(22,34,55,.72); transform: translateY(-2px); }
+.admin-message-body { white-space: pre-wrap; overflow-wrap: anywhere; }
+.admin-message-actions { display: flex; align-items: center; gap: .55rem; flex-shrink: 0; }
+.admin-message .icon-button.danger { border-color: rgba(242,139,130,.28); }
+.admin-message .icon-button.danger:hover { background: rgba(242,139,130,.12); border-color: rgba(242,139,130,.65); box-shadow: 0 0 18px rgba(242,139,130,.12); }
+.message-read, .message-unread { display: inline-flex; align-items: center; gap: .35rem; }
+.message-read::before, .message-unread::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #8fa5b8; }
+.message-unread::before { background: var(--tech-cyan); box-shadow: 0 0 10px rgba(120,229,242,.8); }
+@media (max-width: 700px) {
+  .admin-message-actions { width: 100%; justify-content: flex-start; }
+  body::before { background-size: 48px 48px; opacity: .12; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+  .project-card, .focus-card, .contact-panel, .resume-callout, .admin-message, .btn { transition: none; }
+  .project-card:hover, .focus-card:hover, .contact-panel:hover, .admin-message:hover, .btn--primary:hover { transform: none; }
+}

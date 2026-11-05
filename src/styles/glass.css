@@ -1,0 +1,69 @@
+/* Atmosphere: a fixed particle field and translucent "glass" surfaces.
+   Imported last so it overrides the solid backgrounds in home.css / layout.css.
+   Delete this file and the <ParticleField /> line to return to the solid look. */
+
+:root {
+  --glass-fill: linear-gradient(145deg, rgba(209, 232, 226, 0.075), rgba(209, 232, 226, 0.02));
+  --glass-fill-hover: linear-gradient(145deg, rgba(209, 232, 226, 0.11), rgba(209, 232, 226, 0.035));
+  --glass-border: rgba(209, 232, 226, 0.17);
+  --glass-border-hover: rgba(209, 232, 226, 0.34);
+  --glass-blur: blur(12px) saturate(140%);
+}
+
+/* Page atmosphere: soft teal light behind the particles */
+body {
+  background:
+    radial-gradient(60rem 40rem at 85% -5%, rgba(17, 100, 102, 0.3), transparent 60%),
+    radial-gradient(50rem 36rem at 5% 105%, rgba(44, 53, 49, 0.75), transparent 60%),
+    var(--color-bg);
+  background-attachment: fixed;
+}
+.particle-field { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+.site-shell { position: relative; z-index: 1; }
+
+/* Let the particles show through full-width sections */
+.hero { background: radial-gradient(ellipse at 72% 43%, rgba(17, 100, 102, 0.26), transparent 45%); }
+.page-hero { background: radial-gradient(ellipse at 78% 20%, rgba(17, 100, 102, 0.22), transparent 40%); }
+.intro-section { background: rgba(44, 53, 49, 0.3); }
+.skills-section { background: linear-gradient(180deg, rgba(44, 53, 49, 0.34), rgba(16, 23, 21, 0.05)); }
+.values-section { background: rgba(44, 53, 49, 0.2); }
+.contact-band { background: rgba(44, 53, 49, 0.34); }
+.site-footer { background: rgba(16, 23, 21, 0.55); }
+
+/* Glass cards */
+.project-card,
+.focus-card,
+.contact-panel,
+.contact-panel--secondary,
+.resume-callout,
+.case-art {
+  background: var(--glass-fill);
+  border-color: var(--glass-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 12px 40px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+.project-card:hover,
+.focus-card:hover,
+.contact-panel:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-hover);
+}
+.project-card, .focus-card, .contact-panel {
+  transition: border-color var(--dur-ui) var(--ease-out), background var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
+}
+
+/* Card thumbnails: keep the teal glow, drop the solid fill so the glass reads through */
+.project-card__art,
+[class*="project-card__art--"] {
+  background: radial-gradient(circle at 50% 55%, rgba(17, 100, 102, 0.4), transparent 55%);
+}
+.project-card__art { border-bottom-color: var(--glass-border); }
+.tag-list li { background: rgba(209, 232, 226, 0.08); }
+
+/* Without backdrop-filter support, fall back to a mostly solid card so text stays readable */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .project-card, .focus-card, .contact-panel, .contact-panel--secondary, .resume-callout, .case-art {
+    background: rgba(23, 33, 30, 0.88);
+  }
+}

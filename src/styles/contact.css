@@ -1,0 +1,37 @@
+/* Contact page: public styles. (These used to be borrowed from admin.css, which now loads
+   only with the lazy admin screen, so the form appeared unstyled.) */
+.contact-content { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: start; }
+@media (max-width: 48rem) { .contact-content { grid-template-columns: 1fr; } }
+
+.contact-panel h2 { margin: 0 0 var(--space-3); font-size: var(--text-2xl); }
+.contact-panel > p { color: var(--color-text-muted); }
+
+.contact-form { display: grid; gap: var(--space-5); margin-top: var(--space-6); }
+.contact-form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+@media (max-width: 36rem) { .contact-form__row { grid-template-columns: 1fr; } }
+
+.contact-form label { display: grid; gap: var(--space-2); font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+.contact-form input,
+.contact-form textarea {
+  width: 100%; padding: 0.85rem 1rem;
+  font: inherit; font-weight: 400; color: var(--color-text);
+  background: rgba(10, 15, 28, 0.55);
+  border: 1px solid var(--glass-border, var(--color-border));
+  border-radius: var(--radius-md);
+  transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+.contact-form textarea { min-height: 9.5rem; resize: vertical; line-height: 1.55; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--color-text-muted); opacity: 0.7; }
+.contact-form input:hover, .contact-form textarea:hover { border-color: rgba(209, 232, 226, 0.34); }
+.contact-form input:focus-visible, .contact-form textarea:focus-visible {
+  outline: 2px solid var(--brand-amber); outline-offset: 2px; border-color: var(--brand-amber); background: rgba(10, 15, 28, 0.75);
+}
+.contact-form .btn { justify-self: start; min-height: 3rem; padding-inline: var(--space-6); }
+.contact-form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+@media (max-width: 36rem) { .contact-form .btn { justify-self: stretch; } }
+
+.contact-privacy { margin: calc(var(--space-2) * -1) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+.contact-panel--secondary .contact-actions { margin-top: var(--space-5); padding-top: 0; border-top: 0; }
+.contact-pending { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: rgba(209, 232, 226, 0.06); }
+.contact-pending[role="alert"] { border-color: rgba(242, 139, 130, 0.5); background: rgba(242, 139, 130, 0.1); color: #ffd2ce; }
