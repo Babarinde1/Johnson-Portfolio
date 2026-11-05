@@ -14,13 +14,23 @@ const AdminPage = lazy(() => import("../pages/AdminPage"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 
 function RouteFallback() {
-  return <div className="container route-loading" role="status" aria-live="polite">Loading page…</div>;
+  return (
+    <div className="container route-loading" role="status" aria-live="polite">
+      Loading page…
+    </div>
+  );
 }
-const load = (element: React.ReactNode) => <Suspense fallback={<RouteFallback />}>{element}</Suspense>;
+const load = (element: React.ReactNode) => (
+  <Suspense fallback={<RouteFallback />}>{element}</Suspense>
+);
 
 // /admin is protected by Supabase Auth + RLS, not by obscurity.
 export const router = createBrowserRouter([
-  { path: "/admin", element: load(<AdminPage />), errorElement: load(<ErrorPage />) },
+  {
+    path: "/admin",
+    element: load(<AdminPage />),
+    errorElement: load(<ErrorPage />),
+  },
   {
     element: <RootLayout />,
     errorElement: load(<ErrorPage />),

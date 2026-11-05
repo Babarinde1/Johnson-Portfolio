@@ -1,11 +1,46 @@
-.project-card__img, .case-art__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.project-card__art::before, .project-card__art::after { z-index: 1; }
+.project-card__img,
+.case-art__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-card__art::before,
+.project-card__art::after {
+  z-index: 1;
+}
 
 /* Pointer to the full GitHub profile at the end of the project list */
-.github-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4) var(--space-6); margin-top: var(--space-8); padding: var(--space-6); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); background: var(--glass-fill); }
-.github-cta h2 { margin: 0 0 var(--space-2); font-size: var(--text-xl); }
-.github-cta p { margin: 0; color: var(--color-text-muted); }
+.github-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-fill);
+}
+.github-cta h2 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+}
+.github-cta p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
 
 /* About portrait photo (shown when public/portrait.jpg exists) */
-.portrait-photo::before { display: none; }
-.portrait-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait-photo::before {
+  display: none;
+}
+.portrait-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

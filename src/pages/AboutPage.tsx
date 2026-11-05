@@ -7,8 +7,125 @@ import { useEffect, useState } from "react";
 import { defaultSiteContent, fetchSiteContent } from "../lib/supabase-rest";
 
 export default function AboutPage() {
-  const [site,setSite] = useState(defaultSiteContent);
-  useEffect(()=>{let active=true;fetchSiteContent().then(content=>{if(active)setSite(content);});return()=>{active=false;};},[]);
-  usePageMeta("About", "Johnson Pedia: a Food Science graduate building practical AI systems, language technology and computer vision tools.");
-  return <div className="page-wrap"><section className="page-hero"><div className="container"><Reveal><p className="label">A little about me</p><h1>Curiosity, turned into <span className="text-gradient">working software.</span></h1><p>I’m Johnson Pedia, a developer focused on practical AI systems, language technology, and tools that solve real problems.</p></Reveal></div></section><section className="container about-intro"><Reveal>{site.portrait_url ? <div className="portrait-placeholder portrait-photo"><img src={site.portrait_url} alt="Portrait of Johnson Pedia" width="640" height="800" /></div> : <div className="portrait-placeholder" role="img" aria-label="Johnson Pedia monogram"><div className="portrait-placeholder__ring"/><div className="portrait-placeholder__initials">JP</div></div>}</Reveal><Reveal><p className="label">The journey</p><h2>Building across disciplines.</h2><p>{site.about_intro}</p><p>I enjoy moving between experimentation and implementation: understanding a problem, choosing a workable approach, testing the result, and being clear about what still needs improvement.</p><p>My current focus is growing as an AI/ML engineer while building useful products and contributing to language technology that serves more communities.</p><Link className="text-link" to="/projects">See the work <ArrowUpRight size={16}/></Link></Reveal></section><section className="section values-section"><div className="container"><Reveal><p className="label">How I work</p><h2>Principles behind the projects.</h2></Reveal><div className="focus-grid"><Reveal><article className="focus-card"><div className="focus-card__icon"><Code2/></div><h3>Build to learn</h3><p>I learn by implementing systems, debugging real constraints, and documenting what works.</p></article></Reveal><Reveal delay={.08}><article className="focus-card"><div className="focus-card__icon"><Lightbulb/></div><h3>Be honest about evidence</h3><p>Experiments, prototypes, and live products have different levels of maturity. I aim to label them clearly.</p></article></Reveal><Reveal delay={.16}><article className="focus-card"><div className="focus-card__icon"><GraduationCap/></div><h3>Keep improving</h3><p>I’m committed to strengthening fundamentals and making projects more reliable, useful, and measurable.</p></article></Reveal></div></div></section><SkillsSection/></div>;
+  const [site, setSite] = useState(defaultSiteContent);
+  useEffect(() => {
+    let active = true;
+    fetchSiteContent().then((content) => {
+      if (active) setSite(content);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+  usePageMeta(
+    "About",
+    "Johnson Pedia: a Food Science graduate building practical AI systems, language technology and computer vision tools.",
+  );
+  return (
+    <div className="page-wrap">
+      <section className="page-hero">
+        <div className="container">
+          <Reveal>
+            <p className="label">A little about me</p>
+            <h1>
+              Curiosity, turned into{" "}
+              <span className="text-gradient">working software.</span>
+            </h1>
+            <p>
+              I’m Johnson Pedia, a developer focused on practical AI systems,
+              language technology, and tools that solve real problems.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+      <section className="container about-intro">
+        <Reveal>
+          {site.portrait_url ? (
+            <div className="portrait-placeholder portrait-photo">
+              <img
+                src={site.portrait_url}
+                alt="Portrait of Johnson Pedia"
+                width="640"
+                height="800"
+              />
+            </div>
+          ) : (
+            <div
+              className="portrait-placeholder"
+              role="img"
+              aria-label="Johnson Pedia monogram"
+            >
+              <div className="portrait-placeholder__ring" />
+              <div className="portrait-placeholder__initials">JP</div>
+            </div>
+          )}
+        </Reveal>
+        <Reveal>
+          <p className="label">The journey</p>
+          <h2>Building across disciplines.</h2>
+          <p>{site.about_intro}</p>
+          <p>
+            I enjoy moving between experimentation and implementation:
+            understanding a problem, choosing a workable approach, testing the
+            result, and being clear about what still needs improvement.
+          </p>
+          <p>
+            My current focus is growing as an AI/ML engineer while building
+            useful products and contributing to language technology that serves
+            more communities.
+          </p>
+          <Link className="text-link" to="/projects">
+            See the work <ArrowUpRight size={16} />
+          </Link>
+        </Reveal>
+      </section>
+      <section className="section values-section">
+        <div className="container">
+          <Reveal>
+            <p className="label">How I work</p>
+            <h2>Principles behind the projects.</h2>
+          </Reveal>
+          <div className="focus-grid">
+            <Reveal>
+              <article className="focus-card">
+                <div className="focus-card__icon">
+                  <Code2 />
+                </div>
+                <h3>Build to learn</h3>
+                <p>
+                  I learn by implementing systems, debugging real constraints,
+                  and documenting what works.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <article className="focus-card">
+                <div className="focus-card__icon">
+                  <Lightbulb />
+                </div>
+                <h3>Be honest about evidence</h3>
+                <p>
+                  Experiments, prototypes, and live products have different
+                  levels of maturity. I aim to label them clearly.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <article className="focus-card">
+                <div className="focus-card__icon">
+                  <GraduationCap />
+                </div>
+                <h3>Keep improving</h3>
+                <p>
+                  I’m committed to strengthening fundamentals and making
+                  projects more reliable, useful, and measurable.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+      <SkillsSection />
+    </div>
+  );
 }

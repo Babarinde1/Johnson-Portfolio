@@ -8,9 +8,11 @@
   --brand-mint: #d1e8e2;
 
   /* Surfaces */
-  --color-bg: #101715;            /* page base */
-  --color-bg-raised: #17211e;     /* cards, panels */
-  --color-bg-band: var(--brand-charcoal-teal); /* hero atmosphere, footer, bands */
+  --color-bg: #101715; /* page base */
+  --color-bg-raised: #17211e; /* cards, panels */
+  --color-bg-band: var(
+    --brand-charcoal-teal
+  ); /* hero atmosphere, footer, bands */
   --color-border: rgba(209, 232, 226, 0.14);
 
   /* Text */
@@ -31,9 +33,11 @@
   --color-success: #9bd7b0;
 
   /* Fonts: system fallbacks included so text shows before webfonts load */
-  --font-heading: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-heading:
+    "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  --font-mono:
+    ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 
   /* Type scale (fluid) */
   --text-xs: 0.75rem;
