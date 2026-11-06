@@ -81,12 +81,11 @@ export default function ResumePage() {
             <div>
               <h3>B.Tech Food Science</h3>
               <p>
-                Ladoke Akintola University of Technology (LAUTECH), Ogbomoso
+                Ladoke Akintola University of Technology (LAUTECH), Ogbomoso.
               </p>
             </div>
             <div className="resume-entry__meta">
               <span>Second Class Upper (2:1)</span>
-              <span>CGPA: 3.94 / 5.00</span>
             </div>
           </article>
         </div>
