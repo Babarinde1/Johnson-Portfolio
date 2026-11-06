@@ -19,7 +19,7 @@ export default function AboutPage() {
   }, []);
   usePageMeta(
     "About",
-    "Johnson Pedia: a Food Science graduate building practical AI systems, language technology and computer vision tools.",
+    "Babarinde Johnson Omotayo: a Food Science graduate building practical AI systems, language technology and computer vision tools.",
   );
   return (
     <div className="page-wrap">
@@ -32,7 +32,7 @@ export default function AboutPage() {
               <span className="text-gradient">working software.</span>
             </h1>
             <p>
-              I’m Johnson Pedia, a developer focused on practical AI systems,
+              I’m Babarinde Johnson Omotayo, a developer focused on practical AI systems,
               language technology, and tools that solve real problems.
             </p>
           </Reveal>
